@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Reset Dasar */
 * {
     margin: 0;
@@ -452,4 +453,460 @@ body {
     .footer-col h4 {
         margin-top: 20px;
     }
+=======
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #3B82F6;
+    --soft-blue: #cff7ff;
+    --primary-green: #10B981;
+    --soft-green: #D1FAE5;
+    --dark-text: #1F2937;
+    --gray-light: #F8FAFC;
+    --gray-border: #E2E8F0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    /* background-color: var(--gray-light); */
+    background-image: url('../image/bimbingan\ konseling.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background: white;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.flex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+.logo img{
+    width: 60px;
+    height: auto;
+    max-height: 100%;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #64748b;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-blue);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #2563EB;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--soft-blue);
+    color: var(--primary-blue);
+    padding: 10px;
+    width: 100%;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 0;
+    text-align: center;
+    background-color: #0000004d;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.555);
+    color: white;
+
+}
+
+.highlight-blue { color: var(--primary-blue); }
+.highlight-green { color: var(--primary-green); }
+
+.hero p {
+    font-size: 1.2rem;
+    color: #475569;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.555);
+    color: white;
+}
+
+.features {
+    padding-block: 80px;
+    background-color: var(--soft-blue);   
+}
+.services {
+    padding-block: 80px;
+    background-color: white;   
+}
+/* Grid & Cards */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2rem;
+}
+
+.card {
+    width: 100%;
+    object-fit: cover;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--gray-border);
+}
+
+.card i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Psikolog Directory */
+.directory {
+    padding: 80px 0;
+    background: var(--soft-blue);
+}
+
+.section-header {
+    margin-bottom: 40px;
+}
+
+.psikolog-card {
+    border: 1px solid var(--gray-border);
+    border-radius: 16px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.profile-img {
+    width: 100%;
+    object-fit: cover;
+    /* object-position: top; */
+    height: 180px;
+    background: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: #94a3b8;
+}
+
+.info {
+    padding: 20px;
+}
+
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.akademik { background: var(--soft-blue); color: var(--primary-blue); }
+.relasi { background: var(--soft-green); color: var(--primary-green); }
+.trauma { background: #F3E8FF; color: #7E22CE; }
+
+.price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+/* Footer */
+.footer {
+    padding: 40px 0;
+    text-align: center;
+    background: var(--dark-text);
+    color: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .hero h1 { font-size: 2.2rem; }
+}
+
+.service-selection {
+    background-image: none !important; /* Menghapus gambar */
+    background-color: #F8FAFC; /* Warna abu-abu sangat muda agar kartu putih terlihat kontras */
+    padding: 100px 0;
+}
+
+.selection-grid {
+    display: flex;
+    justify-content: center;
+    gap: 0; /* Menempel seperti di gambar */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.selection-card {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s;
+}
+
+/* Card Psikolog (Kiri) */
+.card-psikolog {
+    background-color: #7A867E; /* Warna abu kehijauan sesuai gambar */
+    border-radius: 40px 0 0 40px; /* Lengkungan hanya di sisi luar kiri */
+    color: white;
+}
+
+/* Card Life Coach (Kanan) */
+.card-coach {
+    background-color: #A4B2B6; /* Warna abu kebiruan sesuai gambar */
+    border-radius: 0 0px 0px 0; /* Lengkungan hanya di sisi luar kanan */
+    color: white;
+}
+
+.card-peer {
+    background-color: #233a41; /* Warna abu kebiruan sesuai gambar */
+    border-radius: 0 40px 40px 0; /* Lengkungan hanya di sisi luar kanan */
+    color: white;
+}
+
+.card-content {
+    padding: 40px;
+    text-align: left;
+    z-index: 5;
+}
+
+.card-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.selection-card img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.arrow-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+}
+
+/* Hover Effect */
+.selection-card:hover {
+    transform: scale(1.02);
+    z-index: 10;
+}
+
+/* Styling Footer Utama */
+.main-footer {
+    background-color: #ffffff;
+    padding: 80px 0 30px;
+    border-top: 1px solid #eee;
+    color: #475569;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr; /* Kolom logo lebih lebar */
+    gap: 40px;
+}
+
+/* Kolom Brand */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3B82F6;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 40px;
+    width: auto;
+}
+
+.footer-desc {
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+/* Link Sosial Media */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    color: #64748b;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #3B82F6;
+    transform: translateY(-3px);
+}
+
+/* Tipografi Header Kolom */
+.footer-col h4 {
+    color: #1F2937;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Styling List Menu */
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #64748b;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #3B82F6;
+    padding-left: 5px;
+}
+
+/* Kolom Kontak */
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.contact-info i {
+    color: #3B82F6;
+    font-size: 1.2rem;
+}
+
+/* Footer Bagian Bawah */
+.footer-bottom {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.footer-bottom hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin-bottom: 30px;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* Responsive untuk HP */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Jadi satu kolom semua di HP */
+        text-align: center;
+    }
+
+    .footer-logo, .social-links, .contact-info p {
+        justify-content: center;
+    }
+
+    .footer-col h4 {
+        margin-top: 20px;
+    }
+>>>>>>> e383011dabf9be6284abf318c3dabfd4a79e4aea
 }

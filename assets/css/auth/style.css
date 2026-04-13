@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     margin: 0;
     padding: 0;
@@ -147,4 +148,155 @@ body {
 .btn-ghost:hover {
     background: #EDF1F4;
     transform: translateY(-2px);
+=======
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f0f7ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.desktop-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.back-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2D3E50;
+    text-decoration: none;
+    border-bottom: 1px solid #2D3E50;
+}
+
+.main-card {
+    display: flex;
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+    min-height: 550px;
+}
+
+/* --- Sisi Kiri (Gradient) --- */
+.brand-side {
+    flex: 1.1;
+    background: linear-gradient(135deg, #A4E5FF 0%, #C4FFEB 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    text-align: center;
+}
+
+.logo-wrapper {
+    width: 200px;   /* Sesuaikan dengan keinginanmu */
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; /* Jarak ke tulisan MindCare */
+}
+
+.brand-logo {
+    width: 100%;     /* Gambar akan mengikuti lebar wrapper */
+    height: auto;    /* Menjaga proporsi gambar agar tidak gepeng */
+    display: block;
+    object-fit: contain; /* Memastikan gambar terlihat utuh di dalam box */
+}
+
+.brand-text h2 {
+    font-size: 28px;
+    color: #2D3E50;
+    margin-bottom: 12px;
+}
+
+.brand-text p {
+    font-size: 15px;
+    color: #5D6D7E;
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+/* --- Sisi Kanan (Putih) --- */
+.action-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
+
+.content-right {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+}
+
+.welcome-msg {
+    color: #9ED66B; /* Hijau sesuai gambar */
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.instruction {
+    font-size: 14px;
+    color: #A0AAB2;
+    margin-bottom: 40px;
+}
+
+/* --- Tombol --- */
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-white {
+    background: #ffffff;
+    color: #333;
+    border: 1px solid #EAEAEA;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.btn-white:hover {
+    background: #f9f9f9;
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    background: #F4F7F9;
+    color: #333;
+    border: 1px solid transparent;
+}
+
+.btn-ghost:hover {
+    background: #EDF1F4;
+    transform: translateY(-2px);
+>>>>>>> e383011dabf9be6284abf318c3dabfd4a79e4aea
 }
