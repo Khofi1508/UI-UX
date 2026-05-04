@@ -96,7 +96,7 @@ body {
 }
 
 .welcome-msg {
-    color: #9ED66B; /* Hijau sesuai gambar */
+    color: #9ED66B;
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -134,13 +134,13 @@ body {
 }
 
 .btn-white:hover {
-    background: #f9f9f9;
+    background: #b2b2b2;
     transform: translateY(-2px);
 }
 
 .btn-ghost {
-    background: #F4F7F9;
-    color: #333;
+    background: #9ED66B;
+    color: #000000;
     border: 1px solid transparent;
 }
 
