@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare Directory</title>
+    <link rel="stylesheet" href="../assets/css/auth/Daftar Psikolog - Pembayaran.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../assets/images/Logo Dashboard.jpeg" alt="MindCare Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="logo-fallback">MC</div>
+                <div>
+                    <h2>MindCare</h2>
+                    <p>Mental Health Directory</p>
+                </div>
+            </div>
+            <nav class="menu">
+                <button class="active" data-target="dashboard"> Dashboard</button>
+                <button data-target="favorites"> Favorite</button>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header class="topbar">
+                <div>
+                    <h1>Find Your Psychologist</h1>
+                    <p>Pilih psikolog terbaik sesuai kebutuhan mental health kamu.</p>
+                </div>
+                <div class="search-box">
+                    🔍 <input type="text" id="searchInput" placeholder="Cari nama atau spesialisasi...">
+                </div>
+            </header>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="anxiety">Anxiety</button>
+                <button class="filter-btn" data-filter="relationship">Relationship</button>
+                <button class="filter-btn" data-filter="family">Family</button>
+                <button class="filter-btn" data-filter="stress">Stress</button>
+            </div>
+
+            <div class="cards" id="doctorGrid">
+                <!-- Dokter 1 -->
+                <div class="card" data-id="1" data-name="Dr. Andini, M.Psi" data-price="250000" data-category="anxiety relationship">
+                    <div class="card-top">
+                        <img src="https://i.pravatar.cc/300?img=32" alt="Dr. Andini" class="doc-img">
+                        <div class="card-info">
+                            <h3>Dr. Andini, M.Psi</h3>
+                            <span class="tag">Anxiety & Relationship</span>
+                            <div class="rating">★★★★★ <span>4.9</span></div>
+                        </div>
+                        <button class="fav-btn" data-id="1">☆</button>
+                    </div>
+                    <p class="doc-desc">Spesialis anxiety & burnout. Cocok untuk mahasiswa & profesional muda.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp250.000</span>
+                        <button class="book-btn" onclick="openBooking(1)">Booking</button>
+                    </div>
+                </div>
+
+                <!-- Dokter 2 -->
+                <div class="card" data-id="2" data-name="Dr. Arif Brata" data-price="450000" data-category="relationship">
+                    <div class="card-top">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dr. Arif" class="doc-img">
+                        <div class="card-info">
+                            <h3>Dr. Arif Brata</h3>
+                            <span class="tag">Relationship & Couple</span>
+                            <div class="rating">★★★★★ <span>4.8</span></div>
+                        </div>
+                        <button class="fav-btn" data-id="2">☆</button>
+                    </div>
+                    <p class="doc-desc">Fokus komunikasi pasangan, resolusi konflik & konsultasi pernikahan.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp450.000</span>
+                        <button class="book-btn" onclick="openBooking(2)">Booking</button>
+                    </div>
+                </div>
+
+                <!-- Dokter 3 -->
+                <div class="card" data-id="3" data-name="Dr. Zelina" data-price="1400000" data-category="family">
+                    <div class="card-top">
+                        <img src="https://i.pravatar.cc/300?img=47" alt="Dr. Zelina" class="doc-img">
+                        <div class="card-info">
+                            <h3>Dr. Zelina</h3>
+                            <span class="tag">Family Communication</span>
+                            <div class="rating">★★★★★ <span>4.9</span></div>
+                        </div>
+                        <button class="fav-btn" data-id="3">☆</button>
+                    </div>
+                    <p class="doc-desc">Peningkatan harmoni keluarga & mediasi konflik antar anggota.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp1.400.000</span>
+                        <button class="book-btn" onclick="openBooking(3)">Booking</button>
+                    </div>
+                </div>
+
+                <!-- Dokter 4 -->
+                <div class="card" data-id="4" data-name="Dr. Xu Minghao" data-price="120000" data-category="anxiety stress">
+                    <div class="card-top">
+                        <img src="https://i.pravatar.cc/300?img=15" alt="Dr. Xu" class="doc-img">
+                        <div class="card-info">
+                            <h3>Dr. Xu Minghao</h3>
+                            <span class="tag">Anxiety & Stress</span>
+                            <div class="rating">★★★★★ <span>4.7</span></div>
+                        </div>
+                        <button class="fav-btn" data-id="4">☆</button>
+                    </div>
+                    <p class="doc-desc">Penanganan stres akademik, overthinking & building confidence.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp120.000</span>
+                        <button class="book-btn" onclick="openBooking(4)">Booking</button>
+                    </div>
+                </div>
+
+                <!-- Dokter 5 -->
+                <div class="card" data-id="5" data-name="Dr. Sarah Wijaya" data-price="300000" data-category="stress anxiety">
+                    <div class="card-top">
+                        <img src="https://i.pravatar.cc/300?img=24" alt="Dr. Sarah" class="doc-img">
+                        <div class="card-info">
+                            <h3>Dr. Sarah Wijaya</h3>
+                            <span class="tag">Career & Stress</span>
+                            <div class="rating">★★★★★ <span>4.8</span></div>
+                        </div>
+                        <button class="fav-btn" data-id="5">☆</button>
+                    </div>
+                    <p class="doc-desc">Manajemen burnout kerja, work-life balance & coping mechanism.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp300.000</span>
+                        <button class="book-btn" onclick="openBooking(5)">Booking</button>
+                    </div>
+                </div>
+
+                <!-- Dokter 6 -->
+                <div class="card" data-id="6" data-name="Dr. Reza Pratama" data-price="350000" data-category="family relationship">
+                    <div class="card-top">
+                        <img src="https://i.pravatar.cc/300?img=68" alt="Dr. Reza" class="doc-img">
+                        <div class="card-info">
+                            <h3>Dr. Reza Pratama</h3>
+                            <span class="tag">Parenting & Family</span>
+                            <div class="rating">★★★★★ <span>4.9</span></div>
+                        </div>
+                        <button class="fav-btn" data-id="6">☆</button>
+                    </div>
+                    <p class="doc-desc">Konseling pola asuh, dinamika keluarga & attachment therapy.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp350.000</span>
+                        <button class="book-btn" onclick="openBooking(6)">Booking</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Favorite -->
+            <section class="favorites-section" id="favorites">
+                <h2>🌟 Psychologist Favorit</h2>
+                <p>Simpan psikolog favoritmu untuk konsultasi berikutnya.</p>
+                <div class="fav-grid" id="favGrid">
+                    <p class="empty-fav">Belum ada psikolog favorit. Klik ☆ pada kartu dokter.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Booking -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('bookingModal')">✕</button>
+            <div class="left-section">
+                <div class="section-title">Pilih Jadwal</div>
+                <div class="bar-group" id="dateGroup">
+                    <button class="bar-btn active">25 Mei</button>
+                    <button class="bar-btn">26 Mei</button>
+                    <button class="bar-btn">27 Mei</button>
+                    <button class="bar-btn">28 Mei</button>
+                </div>
+                <div class="section-title" style="margin-top:20px;">Pilih Jam</div>
+                <div class="bar-group" id="timeGroup">
+                    <button class="bar-btn">09.00</button>
+                    <button class="bar-btn active">11.00</button>
+                    <button class="bar-btn">13.00</button>
+                    <button class="bar-btn">15.00</button>
+                </div>
+                <div class="section-title" style="margin-top:20px;">Metode Konsultasi</div>
+                <div class="bar-group" id="methodGroup">
+                    <button class="bar-btn active">Video Call</button>
+                    <button class="bar-btn">Chat</button>
+                    <button class="bar-btn">Tatap Muka</button>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="summary-box">
+                    <h3>Ringkasan Booking</h3>
+                    <div class="summary-item"><span>Psikolog</span><span id="sumName">-</span></div>
+                    <div class="summary-item"><span>Harga Sesi</span><span id="sumPrice">-</span></div>
+                    <div class="summary-item"><span>Biaya Admin</span><span>Rp 5.000</span></div>
+                    <div class="summary-total"><span>Total</span><span id="sumTotal">-</span></div>
+                </div>
+                <button class="book-btn full-width" id="proceedPayBtn">Lanjut ke Pembayaran →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pembayaran -->
+    <div class="modal payment-page" id="paymentModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('paymentModal')">✕</button>
+            <div class="left-section">
+                <div class="section-title">Pilih Metode Pembayaran</div>
+                <div class="option-card payment-method active" data-method="gopay">
+                    <strong>GoPay</strong>
+                    <span>Pembayaran instant</span>
+                </div>
+                <div class="option-card payment-method" data-method="ovo">
+                    <strong>OVO</strong>
+                    <span>Bayar menggunakan saldo</span>
+                </div>
+                <div class="option-card payment-method" data-method="dana">
+                    <strong>DANA</strong>
+                    <span>Pembayaran cepat & aman</span>
+                </div>
+                <div class="option-card payment-method" data-method="bank">
+                    <strong>Transfer Bank</strong>
+                    <span>BCA, BRI, Mandiri, BNI</span>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="summary-box">
+                    <h3>Detail Pembayaran</h3>
+                    <div class="summary-item"><span>Psikolog</span><span id="payName">-</span></div>
+                    <div class="summary-item"><span>Harga Sesi</span><span id="payPrice">-</span></div>
+                    <div class="summary-item"><span>Biaya Admin</span><span>Rp 5.000</span></div>
+                    <div class="summary-total"><span>Total</span><span id="payTotal">-</span></div>
+                </div>
+                <div class="payment-actions">
+                    <button class="leave-btn" onclick="showLeave()">Tinggalkan</button>
+                    <button class="pay-btn full-width" id="confirmPayBtn">Bayar Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Sukses -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-content">
+            <div class="left-section" style="text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+                <div class="success-icon">✅</div>
+                <h2>Pembayaran Berhasil</h2>
+                <p>Booking konsultasi berhasil dilakukan. Detail akan dikirim ke email kamu.</p>
+                <div class="ticket-box">
+                    <div class="summary-item"><span>ID Transaksi</span><span>MC2026-INV-2847</span></div>
+                    <div class="summary-item"><span>Metode</span><span id="payMethodRes">GoPay</span></div>
+                    <div class="summary-item"><span>Jadwal</span><span id="schedRes">25 Mei • 11.00</span></div>
+                </div>
+                <button class="finish-btn full-width" onclick="closeAllModals()">Kembali ke Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pending -->
+    <div class="modal" id="leaveModal">
+        <div class="modal-content leave-content">
+            <div class="left-section" style="text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+                <div class="leave-icon">⏳</div>
+                <h2>Pembayaran Ditunda</h2>
+                <p>Kamu dapat melanjutkan pembayaran kapan saja di menu Dashboard.</p>
+                <button class="leave-btn full-width" onclick="closeAllModals()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentBooking = {};
+        let favorites = JSON.parse(localStorage.getItem('mindcare_favs')) || [];
+
+        // 2. Tab Sidebar Fungsional
+        document.querySelectorAll('.menu button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.menu button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const target = btn.dataset.target;
+                if(target === 'favorites') {
+                    document.getElementById('favorites').scrollIntoView({behavior: 'smooth'});
+                    document.getElementById('favorites').style.background = '#f0f9f4';
+                    setTimeout(() => document.getElementById('favorites').style.background = 'transparent', 1500);
+                } else {
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                }
+            });
+        });
+
+        // Filter & Search
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterDoctors(btn.dataset.filter);
+            });
+        });
+
+        document.getElementById('searchInput').addEventListener('input', (e) => filterDoctors('all', e.target.value.toLowerCase()));
+
+        function filterDoctors(category, search = '') {
+            document.querySelectorAll('.card').forEach(card => {
+                const matchCat = category === 'all' || card.dataset.category.includes(category);
+                const matchSearch = card.dataset.name.toLowerCase().includes(search) || card.querySelector('.tag').textContent.toLowerCase().includes(search);
+                card.style.display = (matchCat && matchSearch) ? 'block' : 'none';
+            });
+        }
+
+        // 1 & 3. Favorite System (Bintang + Indikasi)
+        function updateFavoriteUI() {
+            const grid = document.getElementById('favGrid');
+            grid.innerHTML = '';
+            if (favorites.length === 0) {
+                grid.innerHTML = '<p class="empty-fav">Belum ada psikolog favorit. Klik ☆ pada kartu dokter.</p>';
+                document.querySelectorAll('.fav-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.textContent = '☆';
+                });
+                return;
+            }
+            document.querySelectorAll('.fav-btn').forEach(btn => {
+                const isFav = favorites.some(f => f.id == btn.dataset.id);
+                btn.classList.toggle('active', isFav);
+                btn.textContent = isFav ? '★' : '☆';
+            });
+
+            favorites.forEach(fav => {
+                const card = document.createElement('div');
+                card.className = 'fav-card';
+                card.innerHTML = `
+                    <img src="https://i.pravatar.cc/300?img=${fav.imgId}" alt="${fav.name}">
+                    <h4>${fav.name}</h4>
+                    <span class="tag">${fav.spec}</span>
+                    <button class="book-btn" onclick="openBooking(${fav.id})">Booking</button>
+                    <button class="remove-fav" onclick="removeFavorite(${fav.id})">✕</button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function toggleFavorite(id) {
+            const btn = document.querySelector(`.fav-btn[data-id="${id}"]`);
+            const card = btn.closest('.card');
+            const exists = favorites.find(f => f.id == id);
+
+            if (exists) {
+                favorites = favorites.filter(f => f.id != id);
+            } else {
+                favorites.push({
+                    id: parseInt(id), name: card.dataset.name, price: card.dataset.price,
+                    spec: card.querySelector('.tag').textContent, imgId: card.querySelector('img').src.split('img=')[1]
+                });
+            }
+            localStorage.setItem('mindcare_favs', JSON.stringify(favorites));
+            updateFavoriteUI();
+        }
+
+        function removeFavorite(id) {
+            favorites = favorites.filter(f => f.id !== id);
+            localStorage.setItem('mindcare_favs', JSON.stringify(favorites));
+            updateFavoriteUI();
+        }
+
+        document.querySelectorAll('.fav-btn').forEach(btn => btn.addEventListener('click', e => toggleFavorite(e.target.dataset.id)));
+
+        // Modal & Booking Flow
+        window.openBooking = function(id) {
+            const card = document.querySelector(`.card[data-id="${id}"]`);
+            currentBooking = { id, name: card.dataset.name, price: parseInt(card.dataset.price) };
+            
+            document.getElementById('sumName').textContent = currentBooking.name;
+            document.getElementById('sumPrice').textContent = `Rp ${currentBooking.price.toLocaleString()}`;
+            document.getElementById('sumTotal').textContent = `Rp ${(currentBooking.price + 5000).toLocaleString()}`;
+            
+            document.getElementById('payName').textContent = currentBooking.name;
+            document.getElementById('payPrice').textContent = `Rp ${currentBooking.price.toLocaleString()}`;
+            document.getElementById('payTotal').textContent = `Rp ${(currentBooking.price + 5000).toLocaleString()}`;
+
+            openModal('bookingModal');
+        };
+
+        window.closeModal = id => document.getElementById(id).style.display = 'none';
+        window.closeAllModals = () => ['bookingModal','paymentModal','successModal','leaveModal'].forEach(closeModal);
+        window.openModal = id => document.getElementById(id).style.display = 'flex';
+
+        document.getElementById('proceedPayBtn').onclick = () => { closeModal('bookingModal'); openModal('paymentModal'); };
+        document.getElementById('confirmPayBtn').onclick = () => { 
+            document.getElementById('payMethodRes').textContent = document.querySelector('.payment-method.active').querySelector('strong').textContent;
+            closeModal('paymentModal'); openModal('successModal'); 
+        };
+        window.showLeave = () => { closeModal('paymentModal'); openModal('leaveModal'); };
+
+        // UI Selection
+        document.querySelectorAll('.bar-group, #methodGroup').forEach(group => group.addEventListener('click', e => {
+            if(e.target.classList.contains('bar-btn')) {
+                group.querySelectorAll('.bar-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+        }));
+
+        document.querySelectorAll('.payment-method').forEach(el => el.addEventListener('click', () => {
+            document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+            el.classList.add('active');
+        }));
+
+        updateFavoriteUI();
+    </script>
+</body>
+</html>

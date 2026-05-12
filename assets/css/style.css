@@ -125,7 +125,7 @@ body {
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 20px;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.555);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.555);
     color: white;
 
 }
@@ -138,7 +138,7 @@ body {
     color: #475569;
     max-width: 700px;
     margin: 0 auto 30px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.555);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.555);
     color: white;
 }
 
@@ -292,9 +292,10 @@ body {
 }
 
 .card-content {
-    padding: 40px;
+    padding: 60px;
     text-align: left;
     z-index: 5;
+    
 }
 
 .card-content h2 {
