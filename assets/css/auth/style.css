@@ -148,3 +148,104 @@ body {
     background: #EDF1F4;
     transform: translateY(-2px);
 }
+
+/* ==========================================================================
+   STYLING TAMBAHAN UNTUK LOGIN GOOGLE & APPLE
+   ========================================================================== */
+
+/* Pembatas Garis Tengah (Or Divider) */
+.social-login-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 25px 0 15px 0;
+    color: rgba(255, 255, 255, 0.6); /* Menyesuaikan jika background bertema gelap */
+    font-size: 13px;
+}
+
+/* Jika background area teks kanan Anda putih, ubah warna teks di atas menjadi abu-abu:
+.action-side .social-login-divider { color: #888888; } 
+*/
+
+.social-login-divider::before,
+.social-login-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-login-divider:not(:empty)::before {
+    margin-right: .75em;
+}
+
+.social-login-divider:not(:empty)::after {
+    margin-left: .75em;
+}
+
+/* Grup Tombol Sosial */
+.social-btn-group {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-social {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Kustomisasi Spesifik Tombol Google */
+.btn-google {
+    background-color: #ffffff;
+    color: #2c3e50;
+    border: 1px solid #e2e8f0;
+}
+
+.btn-google:hover {
+    background-color: #f8fafc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+}
+
+/* Kustomisasi Spesifik Tombol Apple */
+.btn-apple {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+}
+
+.btn-apple:hover {
+    background-color: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Penataan Responsif untuk Layar Kecil / HP */
+@media (max-width: 480px) {
+    .social-btn-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Efek fokus pada input email lupa password */
+#resetEmail:focus {
+    border-color: #4caf50 !important;
+    box-shadow: 0 0 0 3px rgba(129, 199, 132, 0.2);
+}
+
+/* Animasi muncul halus untuk card sukses */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -130,3 +130,29 @@ body {
     color: #000000;
     margin-top: 30px;
 }
+
+.forgot-password-link-wrapper {
+    display: block;
+    width: 100%;
+    text-align: center;      /* Membuat posisi teks berada tepat di tengah bawah tombol */
+    margin-top: 15px;        /* Memberikan jarak renggang yang pas dari tombol Masuk di atasnya */
+    margin-bottom: 5px;      /* Jarak tipis sebelum teks footer pendaftaran */
+    clear: both;
+}
+
+.forgot-password-link-wrapper a {
+    color: #4caf50;          /* Warna hijau identitas MindCare */
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Efek interaktif saat kursor diarahkan ke teks */
+.forgot-password-link-wrapper a:hover {
+    color: #388e3c;          /* Hijau berubah sedikit lebih gelap */
+    transform: translateY(-1px); /* Efek terangkat halus */
+    text-decoration: underline;  /* Muncul garis bawah penanda link aktif */
+}
