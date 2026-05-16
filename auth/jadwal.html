@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Konsultasi Mandiri - MindCare</title>
+    <link rel="stylesheet" href="../assets/css/auth/jadwal.css">
+        <link rel="stylesheet" href="../assets/css/auth/Daftar Psikolog - Pembayaran.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <aside class="sidebar">
+            <div class="logo">
+                    <a
+                    href="../index.html">
+                        <img src="../assets/image/Logo Spesial.jpeg" alt="MindCare Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    </a>
+                    <div class="logo-fallback">MC</div>
+                    <div>
+                        <h2>MindCare</h2>
+                        <p>Mental Health Directory</p>
+                    </div>
+            </div>
+            <nav class="menu">
+                <button onclick="window.location.href='Daftar Psikolog - Pembayaran.html'">Dashboard</button>
+                <button onclick="window.location.href='Daftar Psikolog - Pembayaran.html#favorites'">Favorite</button>
+                <button class="active" onclick="window.location.href='jadwal.html'">Jadwal Saya</button>
+            </nav>
+        </aside>
+
+        <main class="main-schedule-content">
+            <div id="emptyStateView" class="empty-view-wrapper">
+                <div class="calendar-panel-icon">📅</div>
+                <h3>Belum ada jadwal bersama psikolog</h3>
+                <p>Silakan lakukan pencarian psikolog pilihanmu dan selesaikan transaksi pembayaran terlebih dahulu.</p>
+                <a href="Daftar Psikolog - Pembayaran.html" class="action-btn-search">Cari Psikolog</a>
+            </div>
+
+            <div id="activeStateView" class="active-view-wrapper" style="display: none;">
+                <h1 class="heading-title-page">Jadwal Konsultasi Mendatang</h1>
+                            <div class="panel-doctor-booked">
+                    <img id="bookedDoctorAvatar" src="assets/image/Doctor_Default.jpg" alt="Psikolog" class="doctor-avatar-thumb">
+                    <div class="doctor-meta-details">
+                        <span class="payment-status-badge">Sudah Terbayar</span>
+                        <h2 id="bookedDoctorName" class="doctor-title-name">Dr. Andini, M.Psi</h2>
+                        <p class="channel-info">Sesi via: <strong>Video Call WhatsApp</strong></p>
+                        <div class="schedule-time-badge">
+                            📅 <strong>Hari Ini / Sesuai Pilihan</strong> | ⏰ Pukul 10:00 WIB
+                        </div>
+                        
+                        <div class="action-panel-footer">
+                            <button onclick="clearCurrentSchedule()" class="btn-cancel-session">
+                                ❌ Batalkan Sesi / Reset Jadwal
+                            </button>
+                        </div>
+                    </div>
+                </div>                
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Fungsi utama membaca data pembayaran dari memori local browser
+        function renderScheduleView() {
+            const paymentStatus = localStorage.getItem("paymentStatus");
+            const emptyView = document.getElementById("emptyStateView");
+            const activeView = document.getElementById("activeStateView");
+
+            if (paymentStatus === "success") {
+                emptyView.style.display = "none";
+                activeView.style.display = "block";
+
+                // Muat data spesifik psikolog yang disimpan saat transaksi di detail_dokter.html
+                const savedDocName = localStorage.getItem("bookedDoctorName");
+                const savedDocImg = localStorage.getItem("bookedDoctorImg");
+                
+                if (savedDocName) document.getElementById("bookedDoctorName").innerText = savedDocName;
+                if (savedDocImg) document.getElementById("bookedDoctorAvatar").src = savedDocImg;
+            } else {
+                emptyView.style.display = "flex";
+                activeView.style.display = "none";
+            }
+        }
+
+        // Fungsi membersihkan jadwal tanpa mempengaruhi halaman favorit
+        function clearCurrentSchedule() {
+            if (confirm("Apakah Anda yakin ingin menghapus jadwal konsultasi ini dari daftar?")) {
+                localStorage.removeItem("paymentStatus");
+                localStorage.removeItem("bookedDoctorName");
+                localStorage.removeItem("bookedDoctorImg");
+                
+                // Perbarui visual halaman setelah data dihapus
+                renderScheduleView();
+            }
+        }
+
+        // Jalankan pengecekan langsung saat dokumen selesai dimuat
+        document.addEventListener("DOMContentLoaded", renderScheduleView);
+    </script>
+</body>
+</html>

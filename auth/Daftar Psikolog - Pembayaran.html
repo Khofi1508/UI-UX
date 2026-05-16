@@ -7,21 +7,25 @@
     <link rel="stylesheet" href="../assets/css/auth/Daftar Psikolog - Pembayaran.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+<link rel="stylesheet" href="Daftar Psikolog - Pembayaran.css">
 <body>
     <div class="container">
         <aside class="sidebar">
             <div class="logo">
-                <img src="../assets/image/Logo Spesial.jpeg
-                " alt="MindCare Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                <div class="logo-fallback">MC</div>
-                <div>
-                    <h2>MindCare</h2>
-                    <p>Mental Health Directory</p>
-                </div>
+                    <a
+                    href="../index.html">
+                        <img src="../assets/image/Logo Spesial.jpeg" alt="MindCare Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    </a>
+                    <div class="logo-fallback">MC</div>
+                    <div>
+                        <h2>MindCare</h2>
+                        <p>Mental Health Directory</p>
+                    </div>
             </div>
             <nav class="menu">
                 <button class="active" data-target="dashboard"> Dashboard</button>
                 <button data-target="favorites"> Favorite</button>
+                <button onclick="window.location.href='jadwal.html'">Jadwal Saya</button>
             </nav>
         </aside>
 
@@ -312,6 +316,7 @@
         }
 
         // 1 & 3. Favorite System (Bintang + Indikasi)
+        // 1 & 3. Favorite System (Bintang + Indikasi)
         function updateFavoriteUI() {
             const grid = document.getElementById('favGrid');
             grid.innerHTML = '';
@@ -332,8 +337,10 @@
             favorites.forEach(fav => {
                 const card = document.createElement('div');
                 card.className = 'fav-card';
+                
+                // MODIFIKASI: Mengubah src gambar agar membaca path asli (fav.img) dari direktori aset Anda
                 card.innerHTML = `
-                    <img src="https://i.pravatar.cc/300?img=${fav.imgId}" alt="${fav.name}">
+                    <img src="${fav.img}" alt="${fav.name}">
                     <h4>${fav.name}</h4>
                     <span class="tag">${fav.spec}</span>
                     <button class="book-btn" onclick="openBooking(${fav.id})">Booking</button>
@@ -342,23 +349,28 @@
                 grid.appendChild(card);
             });
         }
+               function toggleFavorite(id) {
+                const btn = document.querySelector(`.fav-btn[data-id="${id}"]`);
+                const card = btn.closest('.card');
+                const exists = favorites.find(f => f.id == id);
 
-        function toggleFavorite(id) {
-            const btn = document.querySelector(`.fav-btn[data-id="${id}"]`);
-            const card = btn.closest('.card');
-            const exists = favorites.find(f => f.id == id);
+                if (exists) {
+                    favorites = favorites.filter(f => f.id != id);
+                } else {
+                    // Ambil path gambar asli langsung dari element img di dalam kartu dokter
+                    const originalImgPath = card.querySelector('img').getAttribute('src');
 
-            if (exists) {
-                favorites = favorites.filter(f => f.id != id);
-            } else {
-                favorites.push({
-                    id: parseInt(id), name: card.dataset.name, price: card.dataset.price,
-                    spec: card.querySelector('.tag').textContent, imgId: card.querySelector('img').src.split('img=')[1]
-                });
+                    favorites.push({
+                        id: parseInt(id), 
+                        name: card.dataset.name, 
+                        price: card.dataset.price,
+                        spec: card.querySelector('.tag').textContent, 
+                        img: originalImgPath // Menyimpan path asli (misal: assets/image/doctor.jpg) ke properti 'img'
+                    });
+                }
+                localStorage.setItem('mindcare_favs', JSON.stringify(favorites));
+                updateFavoriteUI();
             }
-            localStorage.setItem('mindcare_favs', JSON.stringify(favorites));
-            updateFavoriteUI();
-        }
 
         function removeFavorite(id) {
             favorites = favorites.filter(f => f.id !== id);
@@ -369,20 +381,19 @@
         document.querySelectorAll('.fav-btn').forEach(btn => btn.addEventListener('click', e => toggleFavorite(e.target.dataset.id)));
 
         // Modal & Booking Flow
-        window.openBooking = function(id) {
-            const card = document.querySelector(`.card[data-id="${id}"]`);
-            currentBooking = { id, name: card.dataset.name, price: parseInt(card.dataset.price) };
-            
-            document.getElementById('sumName').textContent = currentBooking.name;
-            document.getElementById('sumPrice').textContent = `Rp ${currentBooking.price.toLocaleString()}`;
-            document.getElementById('sumTotal').textContent = `Rp ${(currentBooking.price + 5000).toLocaleString()}`;
-            
-            document.getElementById('payName').textContent = currentBooking.name;
-            document.getElementById('payPrice').textContent = `Rp ${currentBooking.price.toLocaleString()}`;
-            document.getElementById('payTotal').textContent = `Rp ${(currentBooking.price + 5000).toLocaleString()}`;
+       window.openBooking = function(id) {
+    const card = document.querySelector(`.card[data-id="${id}"]`);
+    const name = encodeURIComponent(card.dataset.name);
+    const price = card.dataset.price;
+    const img = encodeURIComponent(card.querySelector('img').src);
+    const tag = encodeURIComponent(card.querySelector('.tag').textContent);
+    // Deskripsi tambahan untuk halaman detail
+    const desc = encodeURIComponent(card.querySelector('p').textContent);
 
-            openModal('bookingModal');
-        };
+    // Pindah ke halaman detail_dokter.html dengan membawa data
+    window.location.href = `detail_dokter.html?id=${id}&name=${name}&price=${price}&img=${img}&tag=${tag}&desc=${desc}`;
+};
+;
 
         window.closeModal = id => document.getElementById(id).style.display = 'none';
         window.closeAllModals = () => ['bookingModal','paymentModal','successModal','leaveModal'].forEach(closeModal);

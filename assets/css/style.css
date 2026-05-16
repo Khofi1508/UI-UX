@@ -13,6 +13,7 @@
     --dark-text: #1F2937;
     --gray-light: #F8FAFC;
     --gray-border: #E2E8F0;
+    --full-white: #ffffff;
 }
 
 body {
@@ -146,12 +147,14 @@ body {
 }
 
 .features {
-    padding-block: 80px;
-    background-color: var(--soft-blue);   
+    padding-top: 50px;
+    padding-bottom: 0px;
+    background-color: var(--full-white);   
 }
 .services {
-    padding-block: 80px;
-    background-color: white;   
+    padding-top: 10px;
+    padding-bottom: 80px;
+    background-color: var(--full-white);   
 }
 /* Grid & Cards */
 .grid-3 {
@@ -162,23 +165,133 @@ body {
 
 .section-title {
     text-align: center;
+    font-size: 2rem;
+    color :#000000
+}
+
+.section-title1 {
+    text-align: center;
+    font-size: 2rem;
+    color :#5465c6
+}
+
+.section-description {
+    text-align: center;
+    margin-top: 0px;
     margin-bottom: 50px;
+    color: #10B981;
     font-size: 2rem;
 }
 
 .card {
     width: 100%;
     object-fit: cover;
-    background: white;
+    background: var(--full-white);
     padding: 40px;
     border-radius: 20px;
     text-align: center;
-    border: 1px solid var(--gray-border);
+    border: 2px solid #000000;
 }
 
 .card i {
     font-size: 3rem;
     margin-bottom: 20px;
+}
+
+.testimonials {
+    padding: 60px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.testimonial-header h2 {
+    font-size: 2rem;
+    color: #b37110; /* Warna orange kecokelatan sesuai gambar */
+    margin-bottom: 10px;
+}
+
+.testimonial-header h2 span {
+    color: #2d4f54; /* Warna hijau gelap MindCare */
+    display: block;
+}
+
+.testimonial-header p {
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.testimonial-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+    overflow-x: auto; /* Agar bisa scroll di mobile */
+    padding: 10px;
+}
+
+.testimonial-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 25px;
+    width: 320px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-top h4 {
+    margin: 0;
+    color: #333;
+}
+
+.card-top .category {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #444;
+}
+
+.testimonial-text {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.read-more {
+    color: #2d4f54;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.date {
+    display: block;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: #999;
+    text-align: right;
+}
+
+/* Dots Styling */
+.slider-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 30px;
+    height: 6px;
+    background: #ddd;
+    border-radius: 10px;
+}
+
+.dot.active {
+    background: #2d4f54;
 }
 
 /* Psikolog Directory */
@@ -250,9 +363,10 @@ body {
 }
 
 .service-selection {
-    background-image: none !important; /* Menghapus gambar */
-    background-color: #F8FAFC; /* Warna abu-abu sangat muda agar kartu putih terlihat kontras */
+    background-image: none !important;
+    background-color: var(--full-white); 
     padding: 100px 0;
+    margin-top: 0%;
 }
 
 .selection-grid {

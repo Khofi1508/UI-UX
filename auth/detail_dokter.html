@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Psikolog - MindCare</title>
+    <link rel="stylesheet" href="../assets/css/auth/Daftar Psikolog - Pembayaran.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="booking-page-body">
+
+    <div class="dashboard-wrapper">
+        <header class="booking-header">
+            <button onclick="window.history.back()" class="btn-icon-back">← Kembali</button>
+            <div class="brand-logo">MindCare</div>
+        </header>
+
+        <div class="booking-grid">
+            <aside class="left-card-profile">
+                <div class="img-wrapper">
+                    <img id="docImg" src="assets/image/Doctor_Default.jpg" alt="Profile">
+                </div>
+                <h2 id="docName" class="teal-text">Dr. Andini, M.Psi</h2>
+                <span id="docTag" class="badge-tag">Anxiety & Relationship</span>
+                
+                <div class="profile-bio-summary">
+                    <div class="bio-item"><span>⭐</span> 4.9 Rating</div>
+                    <div class="bio-item"><span>💼</span> 10+ Thn Pengalaman</div>
+                    <div class="bio-item"><span>✅</span> 4.000+ Sesi Selesai</div>
+                </div>
+            </aside>
+
+            <main class="right-form-section">
+                <div class="scrollable-content">
+                    <section class="info-group">
+                        <h3 class="section-title">Tentang Psikolog</h3>
+                        <p id="docDesc" class="description-paragraph">
+                            Spesialis anxiety & burnout. Cocok untuk mahasiswa & profesional muda.
+                        </p>
+                    </section>
+
+                    <section class="booking-options-group">
+                        <h3 class="section-title">Konfigurasi Konsultasi</h3>
+                        
+                        <label class="form-label">1. Pilih Metode</label>
+                        <div class="method-toggle-group">
+                            <button class="btn-toggle active" onclick="selectMethod(this)">Online (Chat/Video)</button>
+                            <button class="btn-toggle" onclick="selectMethod(this)">Offline (Tatap Muka)</button>
+                        </div>
+
+                        <label class="form-label">2. Pilih Jadwal Tersedia</label>
+                        <div class="schedule-tiles-grid">
+                            <button class="tile-time" onclick="selectTime(this)">09:00</button>
+                            <button class="tile-time" onclick="selectTime(this)">13:00</button>
+                            <button class="tile-time active-time" onclick="selectTime(this)">19:00</button>
+                            <button class="tile-time" onclick="selectTime(this)">20:30</button>
+                        </div>
+
+                        <label class="form-label" style="margin-top: 25px;">3. Pilih Metode Pembayaran</label>
+                        <div class="payment-methods-grid">
+                            <div class="payment-card active-pay" onclick="selectPayment(this, 'BCA Virtual Account')">💳 BCA Virtual Account</div>
+                            <div class="payment-card" onclick="selectPayment(this, 'OVO')">📱 OVO</div>
+                            <div class="payment-card" onclick="selectPayment(this, 'GoPay')">📱 GoPay</div>
+                            <div class="payment-card" onclick="selectPayment(this, 'QRIS')">📱 DANA</div>
+                        </div>
+
+                        <div class="order-summary-box">
+                            <h4 style="color: #4CAF50; margin-bottom: 15px;">Ringkasan Pembayaran</h4>
+                            <div class="summary-row">
+                                <span>Biaya Sesi Konsultasi</span> 
+                                <strong id="summaryPrice">Rp 250.000</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Biaya Administrasi</span> 
+                                <strong>Rp 5.000</strong>
+                            </div>
+                            <hr class="summary-divider">
+                            <div class="summary-row total-row">
+                                <span>Total Tagihan</span> 
+                                <strong id="summaryTotal" class="teal-text" style="font-size: 1.2rem;">Rp 255.000</strong>
+                            </div>
+                        </div>
+
+                        <button id="btnBayar" class="btn-utama-premium" onclick="openModal()">
+    BAYAR SEKARANG & KONFIRMASI →
+</button>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="paymentModal" class="mc-modal">
+    <div class="mc-modal-content">
+        
+        <button class="mc-modal-close" onclick="closeModal()">&times;</button>
+        
+        <div id="stepDataDiri">
+            
+                <h2 class="modal-title">Sertakan Data Diri</h2>
+                <div class="input-group">
+                    <i class="fa-regular fa-user input-icon"></i>
+                    <input type="text" id="nama" placeholder="Nama Lengkap" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-brands fa-whatsapp input-icon"></i>
+                    <input type="tel" id="whatsapp" placeholder="Nomor WhatsApp (Aktif)" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-regular fa-envelope input-icon"></i>
+                    <input type="email" id="email" placeholder="Email (Optional)">
+                </div>
+                <button class="btn-modal-submit" onclick="showPaymentCode()">LANJUTKAN →</button>
+            </div>
+
+            <div id="stepKode" style="display:none;">
+                <h2 class="modal-title">Selesaikan Pembayaran</h2>
+                <p class="modal-subtitle" id="labelMetode">Metode: BCA Virtual Account</p>
+                <div class="mc-kode-box">
+                    <strong id="kodeBayar">80777 0812 3456 7890</strong>
+                </div>
+                <button class="btn-modal-submit" onclick="showSuccess()">SAYA SUDAH BAYAR</button>
+            </div>
+
+            <div id="stepKode" style="display:none;">
+                <h2 class="modal-title">Selesaikan Pembayaran</h2>
+                <p class="modal-subtitle" id="labelMetode">Metode: BCA Virtual Account</p>
+                <div class="mc-kode-box">
+                    <strong id="kodeBayar">80777 0812 3456 7890</strong>
+                </div>
+                <button class="btn-modal-submit" onclick="showSuccess()">SAYA SUDAH BAYAR</button>
+            </div>
+
+            <div id="stepSuccess" style="display:none; text-align:center;">
+                <div class="success-icon-wrapper" style="font-size: 60px; color: #4CAF50;">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h2 class="modal-title" style="color: #4CAF50; margin-top: 15px;">Pembayaran Berhasil!</h2>
+                <p class="modal-subtitle">Jadwal Anda telah dikonfirmasi. Cek WhatsApp untuk detailnya.</p>
+                <button class="btn-modal-submit" style="background-color: #333;" onclick="closeModal()">Selesai</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Logika Ambil Data URL
+        const params = new URLSearchParams(window.location.search);
+        if(params.has('name')) {
+            document.getElementById('docName').innerText = params.get('name');
+            document.getElementById('docImg').src = decodeURIComponent(params.get('img'));
+            document.getElementById('docTag').innerText = params.get('tag');
+            document.getElementById('docDesc').innerText = params.get('desc');
+            if(params.has('price')) {
+                let basePrice = parseInt(params.get('price'));
+                document.getElementById('summaryPrice').innerText = 'Rp ' + basePrice.toLocaleString('id-ID');
+                document.getElementById('summaryTotal').innerText = 'Rp ' + (basePrice + 5000).toLocaleString('id-ID');
+            }
+        }
+
+        // Fungsi UI
+        function selectMethod(element) {
+            document.querySelectorAll('.btn-toggle').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+        }
+        function selectTime(element) {
+            document.querySelectorAll('.tile-time').forEach(btn => btn.classList.remove('active-time'));
+            element.classList.add('active-time');
+        }
+        
+        let selectedPaymentName = "BCA Virtual Account";
+        function selectPayment(element, name) {
+            document.querySelectorAll('.payment-card').forEach(card => card.classList.remove('active-pay'));
+            element.classList.add('active-pay');
+            selectedPaymentName = name;
+        }
+
+        // FUNGSI MODAL
+        const modal = document.getElementById("paymentModal");
+        function openModal() { modal.style.display = "flex"; }
+        
+        function showPaymentCode() {
+            if (document.getElementById("nama").value === "" || document.getElementById("whatsapp").value === "") {
+                alert("Harap isi Nama dan WhatsApp!"); return;
+            }
+            document.getElementById("labelMetode").innerText = "Metode: " + selectedPaymentName;
+            document.getElementById("stepDataDiri").style.display = "none";
+            document.getElementById("stepKode").style.display = "block";
+        }
+
+        function showSuccess() {
+            document.getElementById("stepKode").style.display = "none";
+            document.getElementById("stepSuccess").style.display = "block";
+
+            localStorage.setItem("paymentStatus", "success");
+            
+            // Mengambil Nama dan Foto Psikolog secara otomatis dari elemen halaman ini
+            const docNameElement = document.getElementById("docName");
+            const docImgElement = document.getElementById("docImg");
+            
+            const currentDocName = docNameElement ? docNameElement.innerText : "Dr. Andini, M.Psi";
+            const currentDocImg = docImgElement ? docImgElement.getAttribute("src") : "assets/image/Doctor_Default.jpg";
+            
+            localStorage.setItem("bookedDoctorName", currentDocName);
+            localStorage.setItem("bookedDoctorImg", currentDocImg);
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+            document.getElementById("stepDataDiri").style.display = "block";
+            document.getElementById("stepKode").style.display = "none";
+            document.getElementById("stepSuccess").style.display = "none";
+        }
+    </script>
+</body>
+</html>
